@@ -1,5 +1,6 @@
 <?php 
 	require_once("../models/usuario.php");
+	require_once("../controllers/subirArchivo.php");
 	/*Verifica si es la primera vez que se entro al sistema*/
 	$usuario = new Usuario();
 	$result = $usuario->busca_administrador(0);

@@ -4,7 +4,7 @@ include_once("../views/header_index.php");?>
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span10 offset1">
-			<h1>Registrar Usuario</h1>
+			<h1>Registrar Administrador</h1>
 			<form class="form-horizontal" action="../controllers/registraAdministrador.php" method="POST" enctype="multipart/form-data">
 				<div style="display:table-cell;">
 				<div class="control-group">

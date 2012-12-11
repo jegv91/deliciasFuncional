@@ -1,5 +1,5 @@
 <?php
-$conexion = mysql_connect("localhost","admin2","delicias");
+$conexion = mysql_connect("localhost","root","");
 
   if(!$conexion){
     die('No se ha podido conectar'.mysql_error());

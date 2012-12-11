@@ -12,63 +12,23 @@ include_once("../views/header_index.php");
 					<a class="btn btn-primary btn-large">Conoce un poco mas &raquo;</a>
 				</p>
 			</div>
-			<div class="row-fluid">
-				<div class="span4">
-					<h2>Promociones</h2>
-					<p>En esta epoca navideña conoce nuestras promociones en leño navideño y galletas 
-						para disfrutar en compañía de su familia.</p>
-					<p>
-						<a class="btn" href="#">Ver mas... &raquo;</a>
-					</p>
-				</div>
-				<!--/span-->
-				<div class="span4">
-					<h2>Nuevos Productos</h2>
-					<p>Incorporamos a nuestros productos los deliciosos pays frutales, ven a deleitarte con su delicioso sabor.</p>
-					<p>
-						<a class="btn" href="#">Ver mas... &raquo;</a>
-					</p>
-				</div>
-				<!--/span-->
-				<div class="span4">
-					<h2>Cursos de Panaderia</h2>
-					<p> Loss días 13,14,15 de Diciembre se impartiran cursos de galletas.</p>
-					<p>
-						<a class="btn" href="#">Ver mas... &raquo;</a>
-					</p>
-				</div>
-				<!--/span-->
-			</div>
-			<!--/row-->
-			<div class="row-fluid">
-				<div class="span4">
-					<h2>Apertura de Nueva Sucursal</h2>
-					<p>Gracias a la preferencia de nuestros clientes inauguramos 
-						nuestra nueva sucursal en Col.Chapultepec, a un costado del Jardín Botanico</p>
-					<p>
-						<a class="btn" href="#">Ver mas... &raquo;</a>
-					</p>
-				</div>
-				<!--/span-->
-				<div class="span4">
-					<h2>Evento Masivo en Puerta</h2>
-					<p>Congreso Internacional de Medicina en el hotel San Marcos el proximo
-						15 de Diciembre, bocadillos,panaderia y pasteles</p>
-					<p>
-						<a class="btn" href="#">Ver mas... &raquo;</a>
-					</p>
-				</div>
-				<!--/span-->
-				<div class="span4">
-					<h2>Remodelaci&oacute;n de tienda Matriz</h2>
-					<p> Para ofrecer un mejor servicio a nuestros clientes remodelaremos nuestra sucursal matriz
-						los dias 8,9 y 10 de Diciembre, pero los esperamos en nuestra nueva sucursal.Gracias.</p>
-					<p>
-						<a class="btn" href="#">Ver mas... &raquo;</a>
-					</p>
-				</div>
-				<!--/span-->
-			</div>
+			<?php 
+			if(!(empty($listaNoticias))){
+				echo '<div class="row-fluid">';
+				echo "<h1>Pasteles</h1>";
+				foreach ($listaPasteles as $obj) {
+					echo "<div class='span4'>";
+					echo "<div class='thumbnail'>";
+					echo "<h2>".$obj["nombre"]."</h2>";
+					echo "<p>".$obj["descripcion"]."</p>";
+					echo "<a class='btn btn-primary' href='../controllers/detalleNoticia.php?id=".$obj["id"]."'><i class='icon-edit icon-white'></i>Ver Informaci&oacute;n</a>";
+					echo " &nbsp; &nbsp; <a class='btn btn-danger' href='../controllers/eliminarUsuario.php?id=".$obj["id"]."'><i class='icon-trash icon-white'></i>Eliminar </a>";
+					echo "</div>";
+					echo "</div>";
+				}
+				echo '</div>';
+			}
+			?>
 			<!--/row-->
 		</div>
 		<!--/span-->
