@@ -29,6 +29,19 @@ $usuario=("CREATE TABLE IF NOT EXISTS usuario (
 mysql_query($usuario, $conexion);
 echo "<br> usuario";
 
+/***** Tabla Clientes **************/
+mysql_query("drop table cliente;");
+$cliente=("CREATE TABLE IF NOT EXISTS cliente (
+  email VARCHAR (200) NOT NULL,
+  direccion VARCHAR (300),
+  telefono TEXT NOT NULL,
+  fechaNacimiento TIMESTAMP DEFAULT NOW(),
+  PRIMARY KEY (email),
+  FOREIGN KEY (email) REFERENCES Usuario (email)
+)Engine=InnoDB;");
+mysql_query($cliente, $conexion);
+echo "<br> Cliente";
+
 /***** Tabla Noticias **************/
 mysql_query("drop table noticias;");
 $noticias=("CREATE TABLE IF NOT EXISTS noticia (
@@ -101,18 +114,7 @@ echo "<br> detalleOrden";
 
 
 
-/***** Tabla Clientes **************/
-mysql_query("drop table cliente;");
-$cliente=("CREATE TABLE IF NOT EXISTS cliente (
-  email VARCHAR (200) NOT NULL,
-  direccion VARCHAR (300),
-  telefono TEXT NOT NULL,
-  fechaNacimiento TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (email),
-  FOREIGN KEY (email) REFERENCES Usuario (email)
-)Engine=InnoDB;");
-mysql_query($cliente, $conexion);
-echo "<br> Cliente";
+
 
 
 /***** Tabla Contador **************/
