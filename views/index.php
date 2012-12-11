@@ -271,7 +271,14 @@
 					  <li><a class="nav-button" href="#contact">Contacto</a></li>
 					  <li><a class="nav-button" href="#map">Mapa</a></li>
 					  <li><a class="nav-button" href="#directory">Directorio</a></li>
+
 				</ul>
+           <li class="active"><a class="nav-button" href="#"><?php
+                include("../models/contador.php");
+                echo "visitas=";
+                echo $num_visitas;
+            ?></a></li>
+
 			  </li>
 				<?php if (!(isset($_SESSION['user_type']))){
 						echo '<li ><a class="nav-button" href="../controllers/registraCliente.php" >¡Reg&iacute;strate!</a></li>';
@@ -415,6 +422,7 @@
       </div>
     </div>
 	<!-- /.container -->
+
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
