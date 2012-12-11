@@ -14,7 +14,7 @@
 			$orden->cliente = $_SESSION['user_id'];
 			$fecha = time();
 			$orden->fecha = date("j/n/Y", $fecha);
-			$orden->cancelada = 0;
+			$orden->estatus = 0;
 			$orden->guarda();
 			foreach($array as $elem1){
 				foreach($elem1 as $elem){

@@ -9,7 +9,7 @@ class Orden extends Active{
     private $id;
 	private $cliente;
     private $fecha;
-	private $cancelada;
+	private $estatus;
 
     public function __constructor() {
 		parent::__construct();
