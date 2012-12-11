@@ -1,7 +1,7 @@
 <?php 
 $server="localhost"; 
-$username="admin2"; 
-$password="delicias"; 
+$username="root"; 
+$password=""; 
 $dataBase="delicias";
 
 $link=mysql_connect($server, $username, $password) 
