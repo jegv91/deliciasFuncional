@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="description" content="Smart Cart 2 - a javascript jQuery shopping cart plugin" />
-<title>Smart Cart 2 - a javascript jQuery shopping cart plugin</title>
+<title>Smart Cart </title>
 
 <!-- Smart Cart Files Include -->
 <link href="../assets/css/smart_cart.css" rel="stylesheet" type="text/css">
