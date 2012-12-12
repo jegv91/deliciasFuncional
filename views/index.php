@@ -15,7 +15,48 @@
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <style>
+    
+	<!--MOSTRAR ERRORES-->
+	<script src="../assets/js/jquery.js"></script>
+	<script src="../assets/validacion/jquery.validate.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="../assets/validacion/errores.css" type="text/css">
+	
+		
+<script>
+	$.validator.setDefaults({
+		submitHandler:	function submitform()
+	{
+	  document.myform.submit();
+	}
+	});
+	$().ready(function() {
+		var validator = $("#texttests").bind("invalid-form.validate", function() {
+			$("#summary").html("Your form contains " + validator.numberOfInvalids() + " errors, see details below.");
+		}).validate({
+			debug: true,
+			errorElement: "em",
+			errorContainer: $("#warning, #summary"),
+			errorPlacement: function(error, element) {
+				error.appendTo( element.parent("td").next("td") );
+			},
+			success: function(label) {
+				label.text("").addClass("success");
+			},
+			rules: {
+				password:{
+				required:true
+				},
+				user:{
+				email:true,
+				required:true
+				},
+					
+	
+			}
+		});
+	});
+	</script>
+	<style>
 
 	html { overflow-y:hidden; }
 	
@@ -223,7 +264,92 @@
     <!-- NAVBAR
     ================================================== -->
     <!-- Wrap the .navbar in .container to center it on the page and provide easy way to target it with .navbar-wrapper. -->
+
+    <div class="container navbar-wrapper">
+      <div class="navbar navbar-inverse navbar-fixed-top" id="header">
+        <div class="navbar-inner">
+          <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Las Delicias</a>
+          <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a class="nav-button" href="#">Inicio</a></li>
+              <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+					<li class="nav-header">Pasteles</li>
+					<?php
+					foreach ($lista as $obj) {
+					if ($obj["tipo"] == 1) 
+						echo "<li><a href='#'>".$obj["nombre"]."</a></li>";
+					}
+					?>
+					<li class="nav-header">Cupcakes</li>
+					<?php
+					foreach ($lista as $obj) {
+					if ($obj["tipo"] == 2) 
+						echo "<li><a href='#'>".$obj["nombre"]."</a></li>";
+					}
+					?>
+					<li class="nav-header">Pays</li>
+					<?php
+					foreach ($lista as $obj) {
+					if ($obj["tipo"] == 3) 
+						echo "<li><a href='#'>".$obj["nombre"]."</a></li>";
+					}
+					?>
+					<li class="nav-header">Panader&iacute;a</li>
+					<?php
+					foreach ($lista as $obj) {
+					if ($obj["tipo"] == 4) 
+						echo "<li><a href='#'>".$obj["nombre"]."</a></li>";
+					}
+					?>
+                </ul>
+              </li>
+			  <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nosotros <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+					<li><a class="nav-button" href="#history">Historia</a></li>
+					  <li><a class="nav-button" href="#contact">Contacto</a></li>
+					  <li><a class="nav-button" href="#map">Mapa</a></li>
+					  <li><a class="nav-button" href="#directory">Directorio</a></li>
+
+				</ul>
+
+			  </li>
+				<?php if (!(isset($_SESSION['user_type']))){
+						echo '<li ><a class="nav-button" href="../controllers/registraCliente.php" >¡Reg&iacute;strate!</a></li>';
+			    } elseif ($_SESSION['user_type'] == 3) {
+						echo '<li ><a class="nav-button" href="../controllers/smartCart.php" >¡Compra YA!</a></li>';
+				}?>
+			</ul>
+			<?php if (isset($_SESSION['user_type'])){ ?>
+				<p class="navbar-text pull-right">
+				<a href="#" class="navbar-link"><?php echo $usuario;?></a>
+				<a href="../controllers/cerrarSesion.php"><i class="icon-off icon-white"></i> </a>
+			<?php } else { ?>
+				<!-- Formulario
+    ================================================== -->
+				<form  class="navbar-form pull-right" class="cmxform" id="texttests" name="myform" method="POST" action="../controllers/validaUsuario.php">
+					<input class="span2" type="text" id="user" name="user" placeholder="Correo">
+					<input class="span2" type="password" id="password" name="password" placeholder="Contrase&ntilde;a">
+					<button type="submit" class="btn">Entrar</button>
+				</form>
+			<?php }?>
+          </div><!--/.nav-collapse -->
+        </div><!-- /.navbar-inner -->
+      </div><!-- /.navbar -->
+    </div><!-- /.container -->
+
     <?php include_once ("../views/navBar.php");?>
+
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" style="padding-top:120px;">
@@ -385,6 +511,23 @@
     <!--javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+	
+	  <script language="JavaScript">
+		function valEmail(valor)
+		{
+		     re=/^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,3})$/     
+			 if(! re.exec(valor))    
+			 {  return false; }
+			 else{ return true; }	 
+   		}
+		function valPass(valor)
+		{
+			if(valor== "")
+			{ return false;}
+			else
+			{ return true;}
+		}
+	</script>
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/bootstrap-transition.js"></script>
     <script src="../assets/js/bootstrap-alert.js"></script>

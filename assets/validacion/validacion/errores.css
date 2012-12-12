@@ -1,0 +1,6 @@
+
+em.error, textarea.error, input.error{
+    color:#FF0000;
+	border:2px solid red;
+}
+
