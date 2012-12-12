@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+	
+	<link href="../assets/css/bootstrap.css" rel="stylesheet">
+	<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="../assets/css/smart_cart.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="../assets/img/favicon.png">
 
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
     <style>
 
+	html { overflow-y:hidden; }
+	
     /* GLOBAL STYLES
     -------------------------------------------------- */
     /* Padding below the footer and lighter body text */
@@ -216,6 +223,7 @@
     <!-- NAVBAR
     ================================================== -->
     <!-- Wrap the .navbar in .container to center it on the page and provide easy way to target it with .navbar-wrapper. -->
+<<<<<<< HEAD
     <div class="container navbar-wrapper">
       <div class="navbar navbar-inverse navbar-fixed-top" id="header">
         <div class="navbar-inner">
@@ -296,6 +304,9 @@
         </div><!-- /.navbar-inner -->
       </div><!-- /.navbar -->
     </div><!-- /.container -->
+
+    <?php include_once ("../views/navBar.php");?>
+
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" style="padding-top:120px;">
@@ -333,18 +344,19 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
     <div class="container marketing">
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-		<?php for ($i = 1; $i <= 3; $i++) {
-			echo '<div class="span4">
-				  <img class="img-circle" src="../assets/img/social/'.$i.'.png">
-				  <h2>Heading</h2>
-				  <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-				  <p><a class="btn" href="#">View details &raquo;</a></p>
-				</div><!-- /.span4 -->';
-		} 
-		?>
-      </div><!-- /.row -->
+      <?php 
+			if(!(empty($listaNoticias))){
+				echo "<h1>Noticias</h1>";
+				echo '<div class="row-fluid">';
+				foreach ($listaNoticias as $obj) {
+					echo "<div class='span4'>";
+					echo "<h2>".$obj["nombre"]."</h2>";
+					echo "<p>".$obj["descripcion"]."</p>";
+					echo "</div>";
+				}
+				echo '</div>';
+			}
+			?>
 	  </div>
     <!-- Historia
     ================================================== -->
@@ -418,6 +430,36 @@
     </div>
 	<!-- /.container -->
 
+<!-- Compras
+	=============================================== -->
+	<?php 
+	if(isset($_SESSION['user_type'])){
+		if($_SESSION['user_type'] == 3){?>
+		<hr class="featurette-divider">
+		<div  id="smartCart">
+		<table align="center" border="0" cellpadding="0" cellspacing="0">
+		<tr><td>  
+		<form action="../controllers/smartCart.php" method="POST">
+		<!-- Smart Cart HTML Starts -->
+		  <div id="SmartCart" class="scMain">
+			<?php 
+			if(!(empty($listaProductos))){
+				foreach($listaProductos as $obj){
+					echo '<input type="hidden" pimage="'.$obj['foto'].'" pprice="'.$obj['precio'].'" pdesc="'.$obj['descripcion'].'" pcategory="'.$obj['categoria'].'" pname="'.$obj['nombre'].'" pid="'.$obj['id'].'">';
+				}
+			}
+			?>                       
+		  </div>
+		<!-- Smart Cart HTML Ends -->
+		</form>
+		</td></tr>
+		</table>
+		
+		</div>
+		<?php 
+		}
+	}?>
+	
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
@@ -464,5 +506,16 @@
         })
       }(window.jQuery)
     </script>
+	
+	<script type="text/javascript" src="../assets/js/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../assets/js/jquery.smartCart-2.0.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// Call Smart Cart    	
+			$('#SmartCart').smartCart();
+			});
+	</script>
+	
   </body>
 </html>
