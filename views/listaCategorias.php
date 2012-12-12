@@ -16,7 +16,7 @@ include_once("../views/header_index.php");?>
 					echo "<tr><td>".$obj["nombre"]."</td>";
 					echo "<td>".$obj["descripcion"]."</td>";
 					echo "<td>".$obj["tipo"]."</td>";	
-					echo "<td><a class='btn btn-danger' href='../controllers/eliminarUsuario.php?id=".$obj["id"]."'><i class='icon-trash icon-white'></i>Eliminar </a></td></tr>";				
+					echo "<td><a class='btn btn-danger' href='../controllers/elimina.php?id=".$obj["id"]."&class=categoria'><i class='icon-trash icon-white'></i>Eliminar </a></td></tr>";				
 				}
 			}else{
 				/*No hay noticias para mostrar*/

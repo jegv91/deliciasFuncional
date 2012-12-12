@@ -8,10 +8,20 @@ class Active {
 
     public function borra(){
 		$tabla = get_class($this);
-		$campos = $this->campos($tabla,true);
-		$consulta = "DELETE FROM $tabla WHERE id = $this->id";
+		if($tabla == 'Usuario' || $tabla == 'Cliente'){
+			$consulta = "DELETE FROM $tabla WHERE email = '$this->email'";
+		}else{
+			$consulta = "DELETE FROM $tabla WHERE id = $this->id";
+		}
 		$arreglo = $this->sentencia($consulta);
-		return 1;
+		if($arreglo){
+			$numero = mysql_affected_rows();
+			if($numero == 1){
+				return 1;
+			}else{
+				return 0;
+			}	
+		}	
     }
 	
     public function guarda() {
@@ -122,6 +132,7 @@ class Active {
 		if ($sentencia) { 
 			return $sentencia;
 		} else {
+			die(mysql_error());
 			set_error_handler($this->error_handler());
 			return false;
 		}

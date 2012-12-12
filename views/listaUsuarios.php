@@ -10,7 +10,7 @@ include_once("../views/header_index.php");?>
 			foreach ($lista as $obj) {
 				echo "<tr><td>".$obj["nombre"]."</td>";				
 				echo "<td><a class='btn btn-primary' href='../controllers/detalleUsuario.php?id=".$obj["email"]."'><i class='icon-user icon-white'></i>Ver Informaci&oacute;n</a></td>";
-				echo "<td><a class='btn btn-danger' href='../controllers/eliminarUsuario.php?id=".$obj["email"]."'><i class='icon-trash icon-white'></i>Eliminar </a></td></tr>";				
+				echo "<td><a class='btn btn-danger' href='../controllers/elimina.php?id=".$obj["email"]."&class=usuario'><i class='icon-trash icon-white'></i>Eliminar </a></td></tr>";				
 			}
 			?>
 			</table>

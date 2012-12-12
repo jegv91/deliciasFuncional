@@ -34,11 +34,11 @@ echo "<br> usuario";
 mysql_query("drop table cliente;");
 $cliente=("CREATE TABLE IF NOT EXISTS cliente (
   email VARCHAR (200) NOT NULL,
-  direccion VARCHAR (300),
+  direccion VARCHAR (254),
   telefono TEXT NOT NULL,
   fechaNacimiento TIMESTAMP DEFAULT NOW(),
   PRIMARY KEY (email),
-  FOREIGN KEY (email) REFERENCES Usuario (email)
+  FOREIGN KEY (email) REFERENCES usuario (email)
 )Engine=InnoDB;");
 mysql_query($cliente, $conexion);
 echo "<br> Cliente";

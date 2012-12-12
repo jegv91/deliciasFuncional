@@ -20,8 +20,8 @@ include_once("../views/header_index.php");
 				echo "<h2>".$obj["nombre"]."</h2>";
 				echo '<img src="'.$obj["foto"].'" alt="'.$obj["descripcion"].'">';
 				echo "<p>".$obj["descripcion"]."</p>";
-				echo "<a class='btn btn-primary' href='../controllers/detalleUsuario.php?id=".$obj["id"]."'><i class='icon-edit icon-white'></i>Ver Informaci&oacute;n</a>";
-				echo " &nbsp; &nbsp; <a class='btn btn-danger' href='../controllers/eliminarUsuario.php?id=".$obj["id"]."'><i class='icon-trash icon-white'></i>Eliminar </a>";
+				echo "<a class='btn btn-info' href='../controllers/editarProducto.php?id=".$obj["id"]."'><i class='icon-edit icon-white'></i>Editar</a>";
+				echo " &nbsp; &nbsp; <a class='btn btn-danger' href='../controllers/elimina.php?id=".$obj["id"]."&class=producto'><i class='icon-trash icon-white'></i>Eliminar </a>";
 				echo "</div>";
 				echo "</div>";
 			}

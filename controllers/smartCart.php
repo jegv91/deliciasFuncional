@@ -10,6 +10,13 @@
 			require_once("../models/orden.php");
 			/*Por cada elemento del arreglo que se recibe, buscamos el producto por id para crear la orden y agregar el detalle*/
 			$array = $_POST; 
+			if (empty($array)){
+				/*No puedes tener una orden vacia*/
+				http_response_code(403);
+				$error='a%3A1%3A%7Bi%3A0%3Bs%3A64%3A"No+puedes+tener+una+orden+vacia."%3B%7D';
+				include_once('../controllers/error.php');
+				die();
+			}
 			$orden = new Orden();
 			$orden->cliente = $_SESSION['user_id'];
 			$fecha = time();

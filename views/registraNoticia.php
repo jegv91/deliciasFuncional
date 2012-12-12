@@ -30,6 +30,9 @@ include_once("../views/header_index.php");
 			<div class="control-group">
 				<div class="controls">
 					<button type="submit" class="btn btn-primary"><i class="icon-comment icon-white"></i> Crear noticia</button>
+					<button type="button"  onclick="history.back()" class="btn btn-danger">
+						<i class="icon-remove icon-white"></i> Cancelar
+					</button>
 				</div>
 			</div>
 		</form>
