@@ -15,7 +15,48 @@
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <style>
+    
+	<!--MOSTRAR ERRORES-->
+	<script src="../assets/js/jquery.js"></script>
+	<script src="../assets/validacion/jquery.validate.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="../assets/validacion/errores.css" type="text/css">
+	
+		
+<script>
+	$.validator.setDefaults({
+		submitHandler:	function submitform()
+	{
+	  document.myform.submit();
+	}
+	});
+	$().ready(function() {
+		var validator = $("#texttests").bind("invalid-form.validate", function() {
+			$("#summary").html("Your form contains " + validator.numberOfInvalids() + " errors, see details below.");
+		}).validate({
+			debug: true,
+			errorElement: "em",
+			errorContainer: $("#warning, #summary"),
+			errorPlacement: function(error, element) {
+				error.appendTo( element.parent("td").next("td") );
+			},
+			success: function(label) {
+				label.text("").addClass("success");
+			},
+			rules: {
+				password:{
+				required:true
+				},
+				user:{
+				email:true,
+				required:true
+				},
+					
+	
+			}
+		});
+	});
+	</script>
+	<style>
 
 	html { overflow-y:hidden; }
 	
@@ -223,7 +264,7 @@
     <!-- NAVBAR
     ================================================== -->
     <!-- Wrap the .navbar in .container to center it on the page and provide easy way to target it with .navbar-wrapper. -->
-<<<<<<< HEAD
+
     <div class="container navbar-wrapper">
       <div class="navbar navbar-inverse navbar-fixed-top" id="header">
         <div class="navbar-inner">
@@ -294,11 +335,13 @@
 				<a href="#" class="navbar-link"><?php echo $usuario;?></a>
 				<a href="../controllers/cerrarSesion.php"><i class="icon-off icon-white"></i> </a>
 			<?php } else { ?>
-				<form class="navbar-form pull-right" method="POST" action="../controllers/validaciones.php">
-					<input class="span2" type="text" id="user" name="user" placeholder="Correo" onClick="if(!valEmail(this)){alert(‘la dirección de correo no es correcta’);}">
-					<input class="span2" type="password" id="password" name="password" placeholder="Contrase&ntilde;a" onClick="if(!valPass(this)){alert(‘se requiere contraseña’);}">
+				<!-- Formulario
+    ================================================== -->
+				<form  class="navbar-form pull-right" class="cmxform" id="texttests" name="myform" method="POST" action="../controllers/validaUsuario.php">
+					<input class="span2" type="text" id="user" name="user" placeholder="Correo">
+					<input class="span2" type="password" id="password" name="password" placeholder="Contrase&ntilde;a">
 					<button type="submit" class="btn">Entrar</button>
-			</form>
+				</form>
 			<?php }?>
           </div><!--/.nav-collapse -->
         </div><!-- /.navbar-inner -->
