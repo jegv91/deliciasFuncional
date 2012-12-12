@@ -100,20 +100,6 @@ class Active {
 		}
     }
 	
-	public function busca_administrador($codigo) {
-		$tabla = get_class($this);
-		$campos = $this->campos($tabla);
-		$sentencia = "SELECT * FROM $tabla WHERE $campos[3] = '$codigo'";
-		$arreglo = $this->sentencia($sentencia);
-		$numero = mysql_num_rows($arreglo);
-		if ($numero > 0) {
-			$this->definevalores($tabla, $arreglo);
-			return 1;
-		} else { 
-			return 0; 
-		}
-    }
-	
     public function busca_todos() {
 		$tabla = get_class($this);
 		$sentencia = "SELECT * FROM $tabla";

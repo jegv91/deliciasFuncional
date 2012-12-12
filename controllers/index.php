@@ -6,9 +6,9 @@
 	}
 	/*Verifica si es la primera vez que se entro al sistema*/
 	$usuario = new Usuario();
-	$result = $usuario->busca_administrador(0);
+	$result = $usuario->busca_administrador();
 	/*Si no encontro ningun administrador, tiene que redirigirlo a la creacion de un nuevo admin*/
-	if ($result == 0){
+	if ($result === 0){
 		/*Redirigimos al administrador a la vista para crear su usuario*/
 		header("location: ../controllers/registraAdministrador.php");
 	}else{		

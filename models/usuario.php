@@ -24,5 +24,19 @@ class Usuario extends Active{
     public function __get($var){
 		return $this->$var;
     }
+	
+	public function busca_administrador() {
+		$tabla = get_class($this);
+		$campos = $this->campos($tabla);
+		$sentencia = "SELECT * FROM $tabla WHERE tipo = 0";
+		$arreglo = $this->sentencia($sentencia);
+		$numero = mysql_num_rows($arreglo);
+		if ($numero > 0) {
+			$this->definevalores($tabla, $arreglo);
+			return 1;
+		} else { 
+			return 0; 
+		}
+    }
 }
 ?>

@@ -15,7 +15,7 @@ include_once("../views/header_index.php");
 				</table>
 			</div>
 			<div style="display:table-cell;">
-				<?php echo "<img src=../Imagenes/Usuario/".$usuario->foto.">";?>
+				<?php echo "<img src=".$usuario->foto.">";?>
 			</div>	
 			<a class='btn btn-primary' onclick="history.back()" ><i class='icon-arrow-left icon-white'></i> Regresar</a>
 		</div>

@@ -6,6 +6,11 @@ include_once("../views/header_index.php");
 	<div class="span11 offset0">	
 	<?php			
 	//pasteles cupcakes pays panaderia
+		if(empty($listaPasteles) AND empty($listaCupcakes) AND empty($listaPays) AND empty($listaPanes)){
+			echo '<div >';
+			echo "<h1>No se han agregado productos</h1>";
+			echo '</div>';
+		}
 		if(!(empty($listaPasteles))){
 			echo '<div class="row-fluid">';
 			echo "<h1>Pasteles</h1>";
