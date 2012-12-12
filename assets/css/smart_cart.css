@@ -15,7 +15,7 @@
     font: normal 12px Verdana, Arial, Helvetica, sans-serif; 
     color: #5A5655;
     border: 0px solid #CCC;
-    width:700px; 
+    width:710px; 
 }
 .scMain .scTabs{
     position:relative;
@@ -35,7 +35,7 @@
     padding: 3px;  
     margin: 0; 
     margin-top:0px;    
-    width:692px;
+    width:701px;
     height:40px; 
     border: 1px solid #AAAAAA;  
     border-bottom: 1px solid #AAAAAA;   
@@ -157,8 +157,8 @@
     position: relative;    
     padding: 2px;  
     margin: 0;   
-    width:692px;
-    height:23px; 
+    width:701px;
+    height:29px; 
     border: 1px solid #F5F5F5;  
     border-bottom: 1px solid #CCC;  
     background: #F5F5F5;   
@@ -215,7 +215,7 @@
     position: relative;    
     padding: 3px;  
     margin: 0;   
-    width:690px;
+    width:700px;
     height:464px; 
     border: 0px solid #F5F5F5;   
     background: #FFFFFF; 
@@ -252,7 +252,7 @@
 .scMain .scProductList .scProducts .scPDiv3 {
     margin-right:10px;
     float:right;
-    width:200px;   
+    width:206px;   
 }
 
 .scMain ul.scMenuBar {

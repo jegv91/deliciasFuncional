@@ -36,10 +36,9 @@
 			/*Indicar que el usuario no es un cliente*/
 		}
 	}else{
-		//Manda a llamar al carrito indicandole los productos que se encuentran disponibles
-		require_once("../models/producto.php");
-		$producto = new Producto();
-		$lista = $producto->busca_todos();
-		include_once("../views/smartCart.php");
+		/*No es administrador, por lo tanto no tiene los permisos para estar aqui*/
+		http_response_code(403);
+		$error='a%3A1%3A%7Bi%3A0%3Bs%3A64%3A"No+tienes+los+permisos+necesarios+para+accesar+a+este+contenido."%3B%7D';
+		include_once('../controllers/error.php');
 	}
 ?>

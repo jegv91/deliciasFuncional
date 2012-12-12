@@ -59,7 +59,7 @@ body {
 					<span class="icon-bar"></span>
 				</a>
 				<?php 	
-				if($tipo == 3 ){
+				if(($tipo == 3) || ($tipo == -1)){
 				?>
 					<a class="brand" href="../controllers/index.php">Las Delicias</a>
 				<?php
@@ -67,7 +67,7 @@ body {
 				?>
 					<a class="brand" href="../controllers/indexAdmin.php">Las Delicias</a>
 				<?php 
-				} else {
+				} else if($tipo == 1) {
 					?>
 					<a class="brand" href="../controllers/indexAnalista.php">Las Delicias</a>
 				<?php 
