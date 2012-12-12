@@ -14,16 +14,14 @@ include_once("../views/header_index.php");
 			</div>
 			<?php 
 			if(!(empty($listaNoticias))){
-				echo '<div class="row-fluid">';
 				echo "<h1>Noticias</h1>";
+				echo '<div class="row-fluid">';
 				foreach ($listaNoticias as $obj) {
 					echo "<div class='span4'>";
-					echo "<div class='thumbnail'>";
 					echo "<h2>".$obj["nombre"]."</h2>";
 					echo "<p>".$obj["descripcion"]."</p>";
 					echo "<a class='btn btn-primary' href='../controllers/detalleNoticia.php?id=".$obj["id"]."'><i class='icon-edit icon-white'></i>Ver Informaci&oacute;n</a>";
 					echo " &nbsp; &nbsp; <a class='btn btn-danger' href='../controllers/eliminarUsuario.php?id=".$obj["id"]."'><i class='icon-trash icon-white'></i>Eliminar </a>";
-					echo "</div>";
 					echo "</div>";
 				}
 				echo '</div>';

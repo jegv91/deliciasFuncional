@@ -12,8 +12,8 @@ include_once("../views/header_index.php");
 			echo '</div>';
 		}
 		if(!(empty($listaPasteles))){
-			echo '<div class="row-fluid">';
 			echo "<h1>Pasteles</h1>";
+			echo '<div class="row-fluid">';
 			foreach ($listaPasteles as $obj) {
 				echo "<div class='span4'>";
 				echo "<div class='thumbnail'>";
@@ -29,8 +29,8 @@ include_once("../views/header_index.php");
 		}
 		
 		if(!(empty($listaCupcakes))){
-			echo '<div class="row-fluid">';
 			echo "<h1>Cupcakes</h1>";
+			echo '<div class="row-fluid">';
 			foreach ($listaCupcakes as $obj) {
 				echo "<div class='span4'>";
 				echo "<div class='thumbnail'>";
@@ -45,8 +45,8 @@ include_once("../views/header_index.php");
 			echo '</div>';
 		}
 		if(!(empty($listaPays))){
-			echo '<div class="row-fluid">';
 			echo "<h1>Pays</h1>";
+			echo '<div class="row-fluid">';
 			foreach ($listaPays as $obj) {
 				echo "<div class='span4'>";
 				echo "<div class='thumbnail'>";
@@ -61,8 +61,8 @@ include_once("../views/header_index.php");
 			echo '</div>';
 		}
 		if(!(empty($listaPanes))){		
-			echo '<div class="row-fluid">';
 			echo "<h1>Panader&iacute;a</h1>";
+			echo '<div class="row-fluid">';
 			foreach ($listaPanes as $obj) {
 				echo "<div class='span4'>";
 				echo "<div class='thumbnail'>";
