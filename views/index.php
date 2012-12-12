@@ -273,11 +273,6 @@
 					  <li><a class="nav-button" href="#directory">Directorio</a></li>
 
 				</ul>
-           <li class="active"><a class="nav-button" href="#"><?php
-                include("../models/contador.php");
-                echo "visitas=";
-                echo $num_visitas;
-            ?></a></li>
 
 			  </li>
 				<?php if (!(isset($_SESSION['user_type']))){
@@ -291,11 +286,11 @@
 				<a href="#" class="navbar-link"><?php echo $usuario;?></a>
 				<a href="../controllers/cerrarSesion.php"><i class="icon-off icon-white"></i> </a>
 			<?php } else { ?>
-				<form class="navbar-form pull-right" method="POST" action="../controllers/validaUsuario.php">
-					<input class="span2" type="text" id="user" name="user" placeholder="Correo">
-					<input class="span2" type="password" id="password" name="password" placeholder="Contrase&ntilde;a">
+				<form class="navbar-form pull-right" method="POST" action="../controllers/validaciones.php">
+					<input class="span2" type="text" id="user" name="user" placeholder="Correo" onClick="if(!valEmail(this)){alert(‘la dirección de correo no es correcta’);}">
+					<input class="span2" type="password" id="password" name="password" placeholder="Contrase&ntilde;a" onClick="if(!valPass(this)){alert(‘se requiere contraseña’);}">
 					<button type="submit" class="btn">Entrar</button>
-				</form>
+			</form>
 			<?php }?>
           </div><!--/.nav-collapse -->
         </div><!-- /.navbar-inner -->
@@ -431,6 +426,23 @@
     <!--javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+	
+	  <script language="JavaScript">
+		function valEmail(valor)
+		{
+		     re=/^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,3})$/     
+			 if(! re.exec(valor))    
+			 {  return false; }
+			 else{ return true; }	 
+   		}
+		function valPass(valor)
+		{
+			if(valor== "")
+			{ return false;}
+			else
+			{ return true;}
+		}
+	</script>
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/bootstrap-transition.js"></script>
     <script src="../assets/js/bootstrap-alert.js"></script>
