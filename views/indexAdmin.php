@@ -15,8 +15,8 @@ include_once("../views/header_index.php");
 			<?php 
 			if(!(empty($listaNoticias))){
 				echo '<div class="row-fluid">';
-				echo "<h1>Pasteles</h1>";
-				foreach ($listaPasteles as $obj) {
+				echo "<h1>Noticias</h1>";
+				foreach ($listaNoticias as $obj) {
 					echo "<div class='span4'>";
 					echo "<div class='thumbnail'>";
 					echo "<h2>".$obj["nombre"]."</h2>";

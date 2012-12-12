@@ -20,6 +20,7 @@ mysql_query("drop table usuario;");
 $usuario=("CREATE TABLE IF NOT EXISTS usuario (
   email VARCHAR (200) NOT NULL,
   nombre VARCHAR (200),
+  foto VARCHAR(254) NOT NULL,
   password VARCHAR(20),
   tipo INT NOT NULL,
   primera_vez INT NOT NULL DEFAULT 0,

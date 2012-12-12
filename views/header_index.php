@@ -59,17 +59,17 @@ body {
 					<span class="icon-bar"></span>
 				</a>
 				<?php 	
-				if($tipo == 1 ){
+				if($tipo == 3 ){
 				?>
-					<a class="brand" href="../views/indexCustomer.php">Las Delicias</a>
+					<a class="brand" href="../controllers/index.php">Las Delicias</a>
 				<?php
 				} else if($tipo == 0 ){ 
 				?>
-					<a class="brand" href="../views/indexAdmin.php">Las Delicias</a>
+					<a class="brand" href="../controllers/indexAdmin.php">Las Delicias</a>
 				<?php 
 				} else {
 					?>
-					<a class="brand" href="../views/index.php">Las Delicias</a>
+					<a class="brand" href="../controllers/indexAnalista.php">Las Delicias</a>
 				<?php 
 				}	?>
 				<div class="nav-collapse collapse">

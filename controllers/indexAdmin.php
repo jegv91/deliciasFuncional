@@ -5,7 +5,7 @@
 	if(isset($_SESSION['user_type'])&&$_SESSION['user_type']==0){
 		require_once("../models/noticia.php");
 		$noticia = new Noticia();
-		$listaNoticia = $noticia->busca_todos();
+		$listaNoticias = $noticia->busca_todos();
 		include "../views/indexAdmin.php";
 	} else{
 		http_response_code(403);
